@@ -1,5 +1,10 @@
 // USe Nodes's require() function to access the node File System module
 const fs = require('fs');
+// const printer = require('./printer');
+
+// "Pluck out" specific values from tge object
+const {printContents, printSentiment} = require('./printer');
+// this is the "destructuring" syntax
 
 
 // "argv" stands vor "argument vector"
@@ -9,13 +14,6 @@ const fs = require('fs');
 const fileName = process.argv[2]; 
 // console.log(fileName);
 
-// Error-first callback
-function printContents(error, buffer) {
-    if (error) {
-        console.log.log(error);
-    } else {
-        console.log(buffer.toString());
-    }
-}
 
-fs.readFile(fileName, printContents);
+
+fs.readFile(fileName, printSentiment);
